@@ -1,0 +1,36 @@
+
+<div class="container px-5 px-sm-0">
+<div class="row">
+<%= render 'users/usersinfo', user: @user,book: @book %>
+  <div class ="col-md-8 offset-md-1">
+    <h2>Books</h2>
+  <table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+    <th></th>
+    <th>title</th>
+    <th>Opinion</th>
+    <th colspan="3"></th>
+    </tr>
+  <tbody>
+<% @books.each do |book| %>
+  <%= link_to book_path(book.id) do %>
+  <% end %>
+      <tr>
+        <td>
+
+  <%= link_to user_path(@user) do %>
+    <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <% end %>
+  </td>
+        <td><p><%= link_to book.title, book_path(book) %></p></td>
+        <td><p><%= book.body %></p></td>
+<% end %>
+      </tr>
+  </tbody>
+  </thead>
+  </table>
+  </div>
+</div>
+</div>
+</div>
